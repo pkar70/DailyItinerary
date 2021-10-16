@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+         xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+         xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+         xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+         xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+         xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5" 
+         IgnorableNamespaces="mp uap rescap uap3 uap5">
+  <Identity Name="622PKar.Dailyitinerary" Publisher="CN=B2AF14E8-43FD-463C-83BA-4CEC47122EA2" Version="1.2105.1.0" />
+  <mp:PhoneIdentity PhoneProductId="90a0bf79-85fb-4a8d-92fb-d6d0384a635b" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>Daily itinerary</DisplayName>
+    <PublisherDisplayName>PKar</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="DailyItinerary.App">
+      <uap:VisualElements DisplayName="Daily itinerary" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="DailyItinerary" BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
+        </uap:DefaultTile>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+      <Extensions>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="gpsstat">
+            <uap:DisplayName>GPS stat file</uap:DisplayName>
+            <uap:EditFlags AlwaysUnsafe="true" />
+            <uap:SupportedFileTypes>
+              <uap:FileType>.txt</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="gpslogfile">
+            <uap:DisplayName>GPS log file</uap:DisplayName>
+            <uap:EditFlags AlwaysUnsafe="true" />
+            <uap:SupportedFileTypes>
+              <uap:FileType>.gpx</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.appService">
+          <uap:AppService Name="com.microsoft.pkar.instamonitor"/>
+        </uap:Extension>
+        <uap5:Extension
+		  Category="windows.appExecutionAlias"
+		  Executable="DailyItinerary.exe"
+		  EntryPoint="DailyItinerary.App">
+          <uap5:AppExecutionAlias>
+            <uap5:ExecutionAlias Alias="DailyItinerary.exe" />
+          </uap5:AppExecutionAlias>
+        </uap5:Extension>
+
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <uap:Capability Name="removableStorage" />
+    <rescap:Capability Name="locationHistory" />
+    <DeviceCapability Name="location" />
+  </Capabilities>
+</Package>
